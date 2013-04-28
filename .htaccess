@@ -1,0 +1,14 @@
+
+Options -Indexes
+
+RewriteEngine on
+#RewriteBase /ot/
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^(.*) index.php?/$1 [L,QSA]
+
+#if it is a valid and php file
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteCond %{SCRIPT_FILENAME} ^(.*)\.(sql|txt|log|db|tar|gzip|zip|ini)$
+RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+
+
